@@ -1,0 +1,13 @@
+# Rifle's Chair plugin by Rifle D. Luffy
+# Version 1.0
+
+
+# #=============[When Damaged By an Entity]=============##
+# Should it eject players of their seats when damaged?
+toss-player-on-damage: false
+# The minumum damage needed to toss a player out of their seat
+minimum-toss-damage: 2
+# The velocity of the toss
+toss-velocity: 1
+# Should the velocity scale with the attacker's speed?
+scale-toss-velocity: true

@@ -1,0 +1,14 @@
+main: com.rifledluffy.chairs.RFChairs
+name: RifleChairs
+version: 1.0
+author: Rifle D. Luffy
+description: Chairs but Rifle's way.
+commands:
+  rfchairs:
+    usage: /<command>
+    description: Run eco commands
+    aliases: [rfc]
+permissions:
+  rfchairs.use:
+    description: Use of chairs
+    default: true
