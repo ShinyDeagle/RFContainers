@@ -27,6 +27,7 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
+import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ChairHandler implements Listener {
@@ -46,6 +47,7 @@ public class ChairHandler implements Listener {
 	public void onRightClick(PlayerInteractEvent event) {
 		if (event.getAction() != Action.RIGHT_CLICK_BLOCK) return;
 		if (event.getPlayer().isSneaking()) return;
+		if (event.getHand() != EquipmentSlot.HAND) return;
 		if (event.getMaterial() != Material.AIR) return;
 		
 		Block block = event.getClickedBlock();
@@ -296,7 +298,7 @@ public class ChairHandler implements Listener {
 	boolean blockIsChair(Block block) {
 		for (Chair chair: chairs) {
 			if (chair.getLocation() == null) continue;
-			if (block.getLocation() == chair.getLocation()) return true;
+			if (samePosition(block, chair.getBlock())) return true;
 		}
 		return false;
 	}
