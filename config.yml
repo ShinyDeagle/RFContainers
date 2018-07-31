@@ -1,7 +1,7 @@
-# Rifle's Chair plugin by Rifle D. Luffy
+# RFContainers plugin by Rifle D. Luffy
 # Version 1.0
-# #=============[When Damaged By an Entity]=============##
-# toss-player-on-damage: Should it eject players of their seats when damaged?
-# minimum-toss-damage: The minumum damage needed to toss a player out of their seat
-toss-player-on-damage: false
-minimum-toss-damage: 2
+# #=============[Container Attributes]=============##
+# max-pile-size: The size that each slot of a single item can contain.
+# max-size: The maximum amount of slots each container has. Must be in multiples of 9
+max-pile-size: 4096
+max-size: 18

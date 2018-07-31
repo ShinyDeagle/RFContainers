@@ -1,10 +1,11 @@
-package com.rifledluffy.chairs.command.commands;
+package com.rifledluffy.containers.command.commands;
 
-import com.rifledluffy.chairs.RFChairs;
+import com.rifledluffy.containers.RFContainers;
 import org.bukkit.entity.Player;
 
 public class InfoCommand extends SubCommand {
-    private RFChairs plugin = RFChairs.getInstance();
+	
+    private RFContainers plugin = RFContainers.getInstance();
 
     @Override
     public void onCommand(Player player, String[] args) {

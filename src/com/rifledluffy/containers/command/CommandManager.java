@@ -1,4 +1,4 @@
-package com.rifledluffy.chairs.command.commands;
+package com.rifledluffy.containers.command;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,26 +9,35 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import com.rifledluffy.chairs.RFChairs;
+import com.rifledluffy.containers.RFContainers;
+import com.rifledluffy.containers.command.commands.HelpCommand;
+import com.rifledluffy.containers.command.commands.InfoCommand;
+import com.rifledluffy.containers.command.commands.ReloadCommand;
+import com.rifledluffy.containers.command.commands.ResetCommand;
+import com.rifledluffy.containers.command.commands.SubCommand;
 
 import net.md_5.bungee.api.ChatColor;
 
 public class CommandManager implements CommandExecutor {
 	
 	private ArrayList<SubCommand> commands = new ArrayList<SubCommand>();
-	private RFChairs plugin = RFChairs.getInstance();
+	private RFContainers plugin = RFContainers.getInstance();
 	
 	public CommandManager(){}
 	
 	//Sub Commands
-	public String main = "rfchairs";
+	public String main = "rfcontainers";
     public String info = "info";
+    public String reload = "reload";
+    public String reset = "reset";
 
     public void setup() {
         plugin.getCommand(main).setExecutor(this);
 
         this.commands.add(new HelpCommand());
         this.commands.add(new InfoCommand());
+        this.commands.add(new ReloadCommand());
+        this.commands.add(new ResetCommand());
     }
 
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
@@ -42,7 +51,7 @@ public class CommandManager implements CommandExecutor {
 
         if (command.getName().equalsIgnoreCase(main)) {
             if (args.length == 0) {
-                player.sendMessage(ChatColor.RED + "Missing Arguments. Type /rfchairs help for info");
+                player.sendMessage(ChatColor.RED + "Missing Arguments. Type /rfcontainers help for info");
                 return true;
             }
 

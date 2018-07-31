@@ -1,4 +1,4 @@
-package com.rifledluffy.chairs;
+package com.rifledluffy.containers;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class ConfigManager {
 
-	private JavaPlugin plugin = RFChairs.getPlugin(RFChairs.class);
+	private JavaPlugin plugin = RFContainers.getPlugin(RFContainers.class);
 	
 	/*
 	 * Configuration Files
@@ -20,8 +20,8 @@ public class ConfigManager {
 	FileConfiguration config;
     File configFile;
    
-    FileConfiguration fake;
-    File fakeFile;
+    FileConfiguration containers;
+    File containersFile;
    
     public void setup() {
            	configFile = new File(plugin.getDataFolder(), "config.yml");
@@ -33,35 +33,35 @@ public class ConfigManager {
                     plugin.getDataFolder().mkdir();
             }
             
-            fakeFile = new File(plugin.getDataFolder(), "fakes.yml");
+            containersFile = new File(plugin.getDataFolder(), "containers.yml");
            
-            if (!fakeFile.exists()) {
+            if (!containersFile.exists()) {
                     try {
-                            fakeFile.createNewFile();
+                            containersFile.createNewFile();
                     }
                     catch (IOException e) {
-                            Bukkit.getServer().getLogger().info("[Rifle Chairs] Could not create fakes.yml!");
+                            Bukkit.getServer().getLogger().info("[Rifle's Containers] Could not create containers.yml!");
                     }
             }
            
-            fake = YamlConfiguration.loadConfiguration(fakeFile);
+            containers = YamlConfiguration.loadConfiguration(containersFile);
     }
    
     public FileConfiguration getData() {
-            return fake;
+            return containers;
     }
    
     public void saveData() {
             try {
-                    fake.save(fakeFile);
+                    containers.save(containersFile);
             }
             catch (IOException e) {
-                    Bukkit.getServer().getLogger().info("[Rifle Chairs] Could not save fakes.yml!");
+                    Bukkit.getServer().getLogger().info("[Rifle's Containers] Could not save containers.yml!");
             }
     }
    
     public void reloadData() {
-            fake = YamlConfiguration.loadConfiguration(fakeFile);
+            containers = YamlConfiguration.loadConfiguration(containersFile);
     }
    
     public FileConfiguration getConfig() {
@@ -73,7 +73,7 @@ public class ConfigManager {
                     config.save(configFile);
             }
             catch (IOException e) {
-                    Bukkit.getServer().getLogger().info("[Rifle Chairs] Could not save config.yml!");
+                    Bukkit.getServer().getLogger().info("[Rifle's Containers] Could not save config.yml!");
             }
     }
    

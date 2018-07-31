@@ -1,14 +1,31 @@
-main: com.rifledluffy.chairs.RFChairs
-name: RifleChairs
+main: com.rifledluffy.containers.RFContainers
+name: RFContainers
 version: 1.0
 author: Rifle D. Luffy
-description: Chairs but Rifle's way.
+api-version: 1.13
+description: Containers but Rifle's way.
 commands:
-  rfchairs:
+  rfcontainers:
     usage: /<command>
-    description: Run eco commands
-    aliases: [rfc]
+    description: The main prefix for other commands. Type /rfcontainers help for more info
+    aliases: [rfcon]
 permissions:
-  rfchairs.use:
-    description: Use of chairs
+  rfcontainers.use:
+    description: Use of containers
     default: true
+  rfcontainers.create:
+    description: creation of containers
+    default: true
+  rfcontainers.reload:
+    description: reload the containers config
+    default: op
+  rfcontainers.reset:
+    description: reset all containers
+    default: op
+  rfcontainers.*:
+    description: Wildcard Perm
+    default: op
+    children:
+      rfcontainers.reload: true
+      rfcontainers.use: true
+      rfcontainers.create: true

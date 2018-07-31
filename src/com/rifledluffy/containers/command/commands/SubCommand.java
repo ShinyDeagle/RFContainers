@@ -1,4 +1,4 @@
-package com.rifledluffy.chairs.command.commands;
+package com.rifledluffy.containers.command.commands;
 
 import org.bukkit.entity.Player;
 
